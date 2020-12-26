@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		526928DE25976AB600518442 /* DiceRoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526928DD25976AB600518442 /* DiceRoller.swift */; };
+		526928E125977F6000518442 /* DicePop.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526928E025977F6000518442 /* DicePop.xib */; };
+		526928E4259787FB00518442 /* DicePop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526928E3259787FB00518442 /* DicePop.swift */; };
 		52851816255C41E8008F4B1D /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52851815255C41E8008F4B1D /* PageViewController.swift */; };
 		52851819255C4225008F4B1D /* DefaultDiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52851818255C4225008F4B1D /* DefaultDiceViewController.swift */; };
 		5285181C255C457A008F4B1D /* CustomDiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5285181B255C457A008F4B1D /* CustomDiceViewController.swift */; };
@@ -23,6 +26,9 @@
 
 /* Begin PBXFileReference section */
 		4CCBCDB2FC73B328F9AA668E /* Pods-DndDice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DndDice.release.xcconfig"; path = "Target Support Files/Pods-DndDice/Pods-DndDice.release.xcconfig"; sourceTree = "<group>"; };
+		526928DD25976AB600518442 /* DiceRoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoller.swift; sourceTree = "<group>"; };
+		526928E025977F6000518442 /* DicePop.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DicePop.xib; sourceTree = "<group>"; };
+		526928E3259787FB00518442 /* DicePop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicePop.swift; sourceTree = "<group>"; };
 		52851815255C41E8008F4B1D /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		52851818255C4225008F4B1D /* DefaultDiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDiceViewController.swift; sourceTree = "<group>"; };
 		5285181B255C457A008F4B1D /* CustomDiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDiceViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +91,9 @@
 				5285181B255C457A008F4B1D /* CustomDiceViewController.swift */,
 				52D7EE432577D9AE001B1121 /* DiceView.xib */,
 				52D7EE462577DE0B001B1121 /* DiceView.swift */,
+				526928DD25976AB600518442 /* DiceRoller.swift */,
+				526928E025977F6000518442 /* DicePop.xib */,
+				526928E3259787FB00518442 /* DicePop.swift */,
 			);
 			path = DndDice;
 			sourceTree = "<group>";
@@ -166,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52FD68B9254C4C1D00EE6C62 /* LaunchScreen.storyboard in Resources */,
+				526928E125977F6000518442 /* DicePop.xib in Resources */,
 				52FD68B6254C4C1D00EE6C62 /* Assets.xcassets in Resources */,
 				52D7EE442577D9AE001B1121 /* DiceView.xib in Resources */,
 				52FD68B4254C4C1D00EE6C62 /* Main.storyboard in Resources */,
@@ -221,9 +231,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				526928DE25976AB600518442 /* DiceRoller.swift in Sources */,
 				52FD68B1254C4C1D00EE6C62 /* ViewController.swift in Sources */,
 				52851819255C4225008F4B1D /* DefaultDiceViewController.swift in Sources */,
 				5285181C255C457A008F4B1D /* CustomDiceViewController.swift in Sources */,
+				526928E4259787FB00518442 /* DicePop.swift in Sources */,
 				52FD68AD254C4C1D00EE6C62 /* AppDelegate.swift in Sources */,
 				52FD68AF254C4C1D00EE6C62 /* SceneDelegate.swift in Sources */,
 				52D7EE472577DE0B001B1121 /* DiceView.swift in Sources */,

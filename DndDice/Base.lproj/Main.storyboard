@@ -62,7 +62,7 @@
             <objects>
                 <viewController storyboardIdentifier="DefaultDiceController" id="0eu-L0-bFj" customClass="DefaultDiceViewController" customModule="DndDice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xgn-Tq-2zn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="613.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="613"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ovi-4A-mIu">
@@ -198,6 +198,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Mf-ig-8AC"/>
                         <color key="backgroundColor" name="BackgroundGray"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ovi-4A-mIu" firstAttribute="centerY" secondItem="Xgn-Tq-2zn" secondAttribute="centerY" id="Els-ew-sx8"/>
                             <constraint firstItem="ovi-4A-mIu" firstAttribute="centerX" secondItem="Xgn-Tq-2zn" secondAttribute="centerX" id="GLf-Jy-neO"/>
@@ -206,6 +207,9 @@
                             <constraint firstItem="ovi-4A-mIu" firstAttribute="top" secondItem="Xgn-Tq-2zn" secondAttribute="top" constant="2" id="bLa-ey-d2N"/>
                             <constraint firstAttribute="bottom" secondItem="ovi-4A-mIu" secondAttribute="bottom" constant="2" id="mue-Up-tPi"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Soh-f7-Ydc" appends="YES" id="HwS-Am-fJy"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Zgg-BP-lox"/>
                     <size key="freeformSize" width="375" height="613.5"/>
@@ -227,6 +231,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOe-nB-29h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Soh-f7-Ydc">
+                    <connections>
+                        <action selector="closePop" destination="0eu-L0-bFj" id="du8-pp-2s5"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1542.753623188406" y="738.61607142857144"/>
         </scene>
