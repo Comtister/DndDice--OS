@@ -50,6 +50,20 @@ class DiceView: UIControl{
     override func sendAction(_ action: Selector, to target: Any?, for event: UIEvent?) {
        super.sendAction(action, to: target, for: event)
         
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            
+            self.topForm.alpha = 0.3
+            self.bottomForm.alpha = 0.3
+            
+        })
+        UIView.animate(withDuration: 0.5, animations: {
+            
+            self.topForm.alpha = 1
+            self.bottomForm.alpha = 1
+            
+        })
+        
     }
    
   

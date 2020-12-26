@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O8a-Ss-mmy">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="dY8-LH-vS0">
+            <objects>
+                <viewController id="O8a-Ss-mmy" customClass="ViewController" customModule="DndDice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NXL-Os-5Ah">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adU-3x-9Mw">
+                                <rect key="frame" x="0.0" y="44" width="414" height="65.5"/>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXZ-4k-XZI">
+                                <rect key="frame" x="0.0" y="109.5" width="414" height="752.5"/>
+                                <color key="backgroundColor" name="BackgroundGray"/>
+                                <connections>
+                                    <segue destination="hcv-V0-q2b" kind="embed" identifier="dahiliSegue" id="nbB-EV-xKZ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Fxk-DX-VEE"/>
+                        <color key="backgroundColor" name="BarBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="LXZ-4k-XZI" firstAttribute="top" secondItem="adU-3x-9Mw" secondAttribute="bottom" id="0RJ-z9-zvF"/>
+                            <constraint firstItem="Fxk-DX-VEE" firstAttribute="bottom" secondItem="LXZ-4k-XZI" secondAttribute="bottom" id="25a-IA-wUe"/>
+                            <constraint firstItem="Fxk-DX-VEE" firstAttribute="trailing" secondItem="adU-3x-9Mw" secondAttribute="trailing" id="ayS-2y-2FG"/>
+                            <constraint firstItem="adU-3x-9Mw" firstAttribute="top" secondItem="Fxk-DX-VEE" secondAttribute="top" id="geX-iE-JW3"/>
+                            <constraint firstItem="adU-3x-9Mw" firstAttribute="height" secondItem="Fxk-DX-VEE" secondAttribute="height" multiplier="0.08" id="oo8-f4-ZHn"/>
+                            <constraint firstItem="adU-3x-9Mw" firstAttribute="leading" secondItem="Fxk-DX-VEE" secondAttribute="leading" id="vtW-Dz-CDZ"/>
+                            <constraint firstItem="LXZ-4k-XZI" firstAttribute="leading" secondItem="Fxk-DX-VEE" secondAttribute="leading" id="vzD-F4-eXE"/>
+                            <constraint firstItem="Fxk-DX-VEE" firstAttribute="trailing" secondItem="LXZ-4k-XZI" secondAttribute="trailing" id="xJN-ef-Vyr"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P83-eg-zaA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="934.78260869565224" y="-6.0267857142857144"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="xsm-5h-bPg">
+            <objects>
+                <pageViewController storyboardIdentifier="PageController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="hcv-V0-q2b" customClass="PageViewController" customModule="DndDice" customModuleProvider="target" sceneMemberID="viewController">
+                    <size key="freeformSize" width="375" height="613.5"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TWl-xd-AYe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="935" y="739"/>
+        </scene>
+        <!--Default Dice View Controller-->
+        <scene sceneID="ctz-d9-UWv">
+            <objects>
+                <viewController storyboardIdentifier="DefaultDiceController" id="0eu-L0-bFj" customClass="DefaultDiceViewController" customModule="DndDice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xgn-Tq-2zn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="613.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ovi-4A-mIu">
+                                <rect key="frame" x="2" y="2" width="371" height="609.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Fbl-on-C85">
+                                        <rect key="frame" x="0.0" y="0.0" width="371" height="426.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="As9-Cn-oZk">
+                                                <rect key="frame" x="0.0" y="0.0" width="371" height="142"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57h-ie-L2O" customClass="DiceView" customModule="DndDice" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="142"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hT2-of-tue" customClass="DiceView" customModule="DndDice" customModuleProvider="target">
+                                                        <rect key="frame" x="127" y="0.0" width="117" height="142"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="azB-2U-6Ik" customClass="DiceView" customModule="DndDice" customModuleProvider="target">
+                                                        <rect key="frame" x="254" y="0.0" width="117" height="142"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ruO-uR-omp">
+                                                <rect key="frame" x="0.0" y="142" width="371" height="142.5"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9A3-EP-JHd" customClass="DiceView" customModule="DndDice" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="142.5"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hb1-dJ-e4r" customClass="DiceView" customModule="DndDice" customModuleProvider="target">
+                                                        <rect key="frame" x="127" y="0.0" width="117" height="142.5"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FW6-v3-WnK" customClass="DiceView" customModule="DndDice" customModuleProvider="target">
+                                                        <rect key="frame" x="254" y="0.0" width="117" height="142.5"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="evG-XK-hnS">
+                                                <rect key="frame" x="0.0" y="284.5" width="371" height="142"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bL6-yx-vp0" customClass="DiceView" customModule="DndDice" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="142"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wzW-Nu-d2k">
+                                                        <rect key="frame" x="127" y="0.0" width="117" height="142"/>
+                                                        <color key="backgroundColor" name="BackgroundGray"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RgY-0C-4TP">
+                                                        <rect key="frame" x="254" y="0.0" width="117" height="142"/>
+                                                        <color key="backgroundColor" name="BackgroundGray"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oB4-wR-W07">
+                                        <rect key="frame" x="0.0" y="426.5" width="371" height="183"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jz7-Th-hfk">
+                                                <rect key="frame" x="0.0" y="0.0" width="371" height="183"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Uz-jB-vXl">
+                                                        <rect key="frame" x="0.0" y="76.5" width="48.5" height="30"/>
+                                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                        <state key="normal" title="-">
+                                                            <color key="titleColor" systemColor="labelColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="katAzalt:" destination="0eu-L0-bFj" eventType="touchUpInside" id="RTH-gM-qXG"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1D" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFX-bE-1U1">
+                                                        <rect key="frame" x="53.5" y="81.5" width="49" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWj-9O-SRZ">
+                                                        <rect key="frame" x="107.5" y="76.5" width="48.5" height="30"/>
+                                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                        <state key="normal" title="+">
+                                                            <color key="titleColor" systemColor="labelColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="katArttir:" destination="0eu-L0-bFj" eventType="touchUpInside" id="pmB-In-UT5"/>
+                                                        </connections>
+                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lG1-Ve-onZ">
+                                                        <rect key="frame" x="161" y="52" width="49" height="79"/>
+                                                        <color key="backgroundColor" name="BackgroundGray"/>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fr-ry-ypc">
+                                                        <rect key="frame" x="215" y="76.5" width="48.5" height="30"/>
+                                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                        <state key="normal" title="-">
+                                                            <color key="titleColor" systemColor="labelColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="bonusAzalt:" destination="0eu-L0-bFj" eventType="touchUpInside" id="lqI-cK-Gq4"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZW-es-3zr">
+                                                        <rect key="frame" x="268.5" y="81.5" width="49" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t78-xz-QTd">
+                                                        <rect key="frame" x="322.5" y="76.5" width="48.5" height="30"/>
+                                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                        <state key="normal" title="+">
+                                                            <color key="titleColor" systemColor="labelColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="bonusArttir:" destination="0eu-L0-bFj" eventType="touchUpInside" id="fqv-KL-mCa"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="oB4-wR-W07" firstAttribute="height" secondItem="ovi-4A-mIu" secondAttribute="height" multiplier="0.3" id="f2e-Ma-5af"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0Mf-ig-8AC"/>
+                        <color key="backgroundColor" name="BackgroundGray"/>
+                        <constraints>
+                            <constraint firstItem="ovi-4A-mIu" firstAttribute="centerY" secondItem="Xgn-Tq-2zn" secondAttribute="centerY" id="Els-ew-sx8"/>
+                            <constraint firstItem="ovi-4A-mIu" firstAttribute="centerX" secondItem="Xgn-Tq-2zn" secondAttribute="centerX" id="GLf-Jy-neO"/>
+                            <constraint firstAttribute="trailing" secondItem="ovi-4A-mIu" secondAttribute="trailing" constant="2" id="QHx-kY-xqL"/>
+                            <constraint firstItem="ovi-4A-mIu" firstAttribute="leading" secondItem="Xgn-Tq-2zn" secondAttribute="leading" constant="2" id="VSg-Yu-77Z"/>
+                            <constraint firstItem="ovi-4A-mIu" firstAttribute="top" secondItem="Xgn-Tq-2zn" secondAttribute="top" constant="2" id="bLa-ey-d2N"/>
+                            <constraint firstAttribute="bottom" secondItem="ovi-4A-mIu" secondAttribute="bottom" constant="2" id="mue-Up-tPi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Zgg-BP-lox"/>
+                    <size key="freeformSize" width="375" height="613.5"/>
+                    <connections>
+                        <outlet property="bonusArttirBtn" destination="t78-xz-QTd" id="3qZ-kQ-upl"/>
+                        <outlet property="bonusAzaltBtn" destination="9fr-ry-ypc" id="bKh-FS-8Ux"/>
+                        <outlet property="bonusLbl" destination="CZW-es-3zr" id="SZ4-fJ-h8W"/>
+                        <outlet property="bottomStackView" destination="jz7-Th-hfk" id="P1p-cG-bnd"/>
+                        <outlet property="katArttirBtn" destination="wWj-9O-SRZ" id="5UC-Xp-kfm"/>
+                        <outlet property="katAzaltBtn" destination="8Uz-jB-vXl" id="w7t-Gg-Lrj"/>
+                        <outlet property="katLbl" destination="NFX-bE-1U1" id="jbY-Es-2Av"/>
+                        <outletCollection property="diceStack" destination="57h-ie-L2O" collectionClass="NSMutableArray" id="0oQ-hO-2Lu"/>
+                        <outletCollection property="diceStack" destination="hT2-of-tue" collectionClass="NSMutableArray" id="OnR-XC-rIh"/>
+                        <outletCollection property="diceStack" destination="azB-2U-6Ik" collectionClass="NSMutableArray" id="KI0-Z6-Te4"/>
+                        <outletCollection property="diceStack" destination="9A3-EP-JHd" collectionClass="NSMutableArray" id="CsX-X1-do6"/>
+                        <outletCollection property="diceStack" destination="hb1-dJ-e4r" collectionClass="NSMutableArray" id="o8Z-3C-szo"/>
+                        <outletCollection property="diceStack" destination="FW6-v3-WnK" collectionClass="NSMutableArray" id="Vwm-Se-gvu"/>
+                        <outletCollection property="diceStack" destination="bL6-yx-vp0" collectionClass="NSMutableArray" id="tr1-uA-SRV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zOe-nB-29h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1542.753623188406" y="738.61607142857144"/>
+        </scene>
+        <!--Custom Dice View Controller-->
+        <scene sceneID="POJ-NW-zxN">
+            <objects>
+                <viewController storyboardIdentifier="CustomDiceController" id="ytB-a0-ho2" customClass="CustomDiceViewController" customModule="DndDice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QuH-z6-Pmo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="613.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Xk7-YS-1n0"/>
+                        <color key="backgroundColor" name="BackgroundGray"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="613.5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lKB-rT-hmU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2192" y="739"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="BackgroundGray">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BarBackgroundColor">
+            <color red="0.29019607843137257" green="0.30196078431372547" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
