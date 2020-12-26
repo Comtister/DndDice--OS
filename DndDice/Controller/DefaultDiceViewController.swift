@@ -32,7 +32,9 @@ class DefaultDiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-         popView = DicePop(frame: CGRect(x: self.view.bounds.midX - (self.view.frame.height/3)/2, y: self.view.bounds.midY - (self.view.frame.height/3)/2, width: self.view.frame.height/3, height: self.view.frame.height/3))
+         popView = DicePop(frame: CGRect(x: 0, y: 0, width: self.view.frame.height/3, height: self.view.frame.height/3))
+        
+         popView.center = view.center
         
         setZarStack()
         setButonViews()
@@ -68,24 +70,7 @@ class DefaultDiceViewController: UIViewController {
        
     }
     
-    private func btnBlink(sender : UIButton){
-        
-        let animOne = UIViewPropertyAnimator(duration: 0.1, curve: .linear, animations: {
-            sender.alpha = 0.5
-            
-        })
-        
-        let animTwo = UIViewPropertyAnimator(duration: 0.1, curve: .linear, animations: {
-            sender.alpha = 1.0
-        })
-       
-        animOne.addCompletion({ _ in
-            animTwo.startAnimation()
-        })
-      
-        animOne.startAnimation()
-        
-    }
+    
     
     @IBAction func katArttir(_ sender : UIButton) {
             btnBlink(sender: sender)
@@ -128,13 +113,17 @@ class DefaultDiceViewController: UIViewController {
         }
     }
     
-    
     @objc public func zare(_ sender : DiceView){
         
-        self.view.addSubview(popView)
-        
-        diceShow = true
-        
+        //İyileştirilecek
+        if diceShow == true{
+            diceShow = false
+            closePopAnim()
+            return
+        }
+
+         openPopAnim()
+         diceShow = true
         
         if let diceResult = DiceRoller.diceRoll(diceId: sender.tag, extras: (diceKat,diceBonus)){
             print(diceResult)
@@ -147,10 +136,11 @@ class DefaultDiceViewController: UIViewController {
             
     }
     
+    
     @IBAction func closePop(){
-        print("HasHas")
+       
         if diceShow == true{
-            popView.removeFromSuperview()
+            closePopAnim()
             diceShow = false
         }else{
             return
@@ -158,6 +148,69 @@ class DefaultDiceViewController: UIViewController {
        
     }
     
+
+}
+
+//MARK:-Animations
+extension DefaultDiceViewController{
+    
+    private func btnBlink(sender : UIButton){
+        
+        let animOne = UIViewPropertyAnimator(duration: 0.1, curve: .linear, animations: {
+            sender.alpha = 0.5
+            
+        })
+        
+        let animTwo = UIViewPropertyAnimator(duration: 0.1, curve: .linear, animations: {
+            sender.alpha = 1.0
+        })
+        
+        animOne.addCompletion({ _ in
+            animTwo.startAnimation()
+        })
+      
+        animOne.startAnimation()
+        
+    }
+    
+    private func openPopAnim(){
+        
+        popView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        
+        self.view.addSubview(popView)
+        
+        let animOp : UIViewPropertyAnimator = UIViewPropertyAnimator.init(duration: 0.05, curve: .linear, animations: {
+            //self.popView.frame.size = CGSize(width: self.view.frame.height/3, height: self.view.frame.height/3)
+            self.popView.transform = .identity
+            //self.popView.alpha = 0.5
+        })
+        
+        
+        animOp.startAnimation()
+        
+    }
+    
+    private func closePopAnim(){
+        
+        popView.transform = .identity
+        
+        let animClose : UIViewPropertyAnimator = UIViewPropertyAnimator(duration: 0.05, curve: .linear, animations: {
+            self.popView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        })
+        
+        animClose.addCompletion({_ in
+            self.popView.removeFromSuperview()
+        })
+        
+        animClose.startAnimation()
+        
+    }
+    
+    
    
+    
+    
+    
+    
     
 }

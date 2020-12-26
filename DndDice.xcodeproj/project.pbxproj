@@ -58,6 +58,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		526928E62597D54000518442 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				526928DD25976AB600518442 /* DiceRoller.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		526928E72597D54C00518442 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52D7EE432577D9AE001B1121 /* DiceView.xib */,
+				52D7EE462577DE0B001B1121 /* DiceView.swift */,
+				526928E025977F6000518442 /* DicePop.xib */,
+				526928E3259787FB00518442 /* DicePop.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		526928E82597D55200518442 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				52FD68B0254C4C1D00EE6C62 /* ViewController.swift */,
+				52851815255C41E8008F4B1D /* PageViewController.swift */,
+				52851818255C4225008F4B1D /* DefaultDiceViewController.swift */,
+				5285181B255C457A008F4B1D /* CustomDiceViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		526928E92597D56500518442 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				52FD68B2254C4C1D00EE6C62 /* Main.storyboard */,
+				52FD68B7254C4C1D00EE6C62 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		52FD68A0254C4C1D00EE6C62 = {
 			isa = PBXGroup;
 			children = (
@@ -79,21 +118,14 @@
 		52FD68AB254C4C1D00EE6C62 /* DndDice */ = {
 			isa = PBXGroup;
 			children = (
+				526928E92597D56500518442 /* Storyboards */,
+				526928E82597D55200518442 /* Controller */,
+				526928E72597D54C00518442 /* View */,
+				526928E62597D54000518442 /* Model */,
 				52FD68AC254C4C1D00EE6C62 /* AppDelegate.swift */,
 				52FD68AE254C4C1D00EE6C62 /* SceneDelegate.swift */,
-				52FD68B0254C4C1D00EE6C62 /* ViewController.swift */,
-				52FD68B2254C4C1D00EE6C62 /* Main.storyboard */,
 				52FD68B5254C4C1D00EE6C62 /* Assets.xcassets */,
-				52FD68B7254C4C1D00EE6C62 /* LaunchScreen.storyboard */,
 				52FD68BA254C4C1D00EE6C62 /* Info.plist */,
-				52851815255C41E8008F4B1D /* PageViewController.swift */,
-				52851818255C4225008F4B1D /* DefaultDiceViewController.swift */,
-				5285181B255C457A008F4B1D /* CustomDiceViewController.swift */,
-				52D7EE432577D9AE001B1121 /* DiceView.xib */,
-				52D7EE462577DE0B001B1121 /* DiceView.swift */,
-				526928DD25976AB600518442 /* DiceRoller.swift */,
-				526928E025977F6000518442 /* DicePop.xib */,
-				526928E3259787FB00518442 /* DicePop.swift */,
 			);
 			path = DndDice;
 			sourceTree = "<group>";

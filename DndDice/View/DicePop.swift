@@ -31,6 +31,7 @@ class DicePop: UIView {
     
        let view = Bundle.main.loadNibNamed("DicePop", owner: self, options: nil)![0] as! UIView
        view.frame = self.bounds
+       view.layer.cornerRadius = 10
         addSubview(view)
         
         
