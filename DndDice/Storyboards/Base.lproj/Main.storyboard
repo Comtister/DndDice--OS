@@ -250,6 +250,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aXD-So-fnf">
                                 <rect key="frame" x="0.0" y="44" width="375" height="569.5"/>
                                 <color key="backgroundColor" name="BackgroundGray"/>
+                                <gestureRecognizers/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="70" id="IUT-W6-dll" customClass="CustomDiceCell" customModule="DndDice" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
@@ -288,19 +289,29 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Xk7-YS-1n0"/>
                         <color key="backgroundColor" name="BackgroundGray"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="aXD-So-fnf" firstAttribute="top" secondItem="Xk7-YS-1n0" secondAttribute="top" id="E3d-B7-Qby"/>
                             <constraint firstItem="aXD-So-fnf" firstAttribute="leading" secondItem="Xk7-YS-1n0" secondAttribute="leading" id="QmV-U3-hnF"/>
                             <constraint firstItem="Xk7-YS-1n0" firstAttribute="bottom" secondItem="aXD-So-fnf" secondAttribute="bottom" id="eI6-ko-90u"/>
                             <constraint firstItem="Xk7-YS-1n0" firstAttribute="trailing" secondItem="aXD-So-fnf" secondAttribute="trailing" id="yRG-k7-n3z"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="by6-2l-j3U" appends="YES" id="bpQ-Ra-QO8"/>
+                        </connections>
                     </view>
                     <size key="freeformSize" width="375" height="613.5"/>
                     <connections>
                         <outlet property="tableView" destination="aXD-So-fnf" id="hNe-Tk-KZc"/>
+                        <outlet property="tapGesture" destination="by6-2l-j3U" id="zob-TE-Ejq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKB-rT-hmU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="by6-2l-j3U">
+                    <connections>
+                        <action selector="tap:" destination="ytB-a0-ho2" id="iin-rN-esY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2189.130434782609" y="738.61607142857144"/>
         </scene>

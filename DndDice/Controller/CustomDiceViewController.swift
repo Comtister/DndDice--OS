@@ -12,17 +12,31 @@ class CustomDiceViewController: UIViewController,UITabBarDelegate,UITableViewDat
     var addButon : UIButton!
     
     @IBOutlet var tableView : UITableView!
+    @IBOutlet var tapGesture : UITapGestureRecognizer!
     
     var data : [DndDice] = [DndDice]()
+    
+    var popView : DicePop!
+    var isPopOpen : Bool = false
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dice = DndDice(diceId: 1, diceCount: 1, diceType: .d6, diceBonus: 0)
+        popView = DicePop(frame: CGRect(x: 0, y: 0, width: self.view.frame.height/3, height: self.view.frame.height/3))
+       
+        popView.center = view.center
+        
+        tapGesture.cancelsTouchesInView = false
+        
+        let dice = DndDice(diceCount: 1, diceType: .d6, diceBonus: 0)
+        
         
         data.append(dice)
         
-        setBtn()
+        addButon = UIButton()
+        setTableButton(object: addButon, x: 20, y: 20, width: 100, height: 50)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -31,31 +45,24 @@ class CustomDiceViewController: UIViewController,UITabBarDelegate,UITableViewDat
        
     }
     
-    private func setBtn(){
-        
-        addButon = UIButton()
-        
-        self.view.addSubview(addButon)
-        addButon.translatesAutoresizingMaskIntoConstraints = false
-        addButon.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        addButon.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
-        addButon.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        addButon.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        
-        addButon.backgroundColor = .systemGray5
-        addButon.layer.cornerRadius = 10
-        addButon.setTitle("Add Dice", for: .normal)
-        addButon.setTitleColor(.black, for: .normal)
-        
-        self.view.bringSubviewToFront(addButon)
-        addButon.addTarget(self, action: #selector(saveScreen(_:)), for: .touchUpInside)
-        
+    @IBAction func tap(_ sender : UITapGestureRecognizer){
+      
+        if isPopOpen{
+           
+            popView.removeFromSuperview()
+            isPopOpen = false
+            for view in self.view.subviews{
+                view.isUserInteractionEnabled = true
+            }
+
+        }
+    
     }
+    
     
     @objc func saveScreen(_ sender : UIButton){
         
-        
-        
+       
         
     }
     
@@ -68,8 +75,7 @@ class CustomDiceViewController: UIViewController,UITabBarDelegate,UITableViewDat
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomDiceCell{
             
-            cell.diceTitleLbl.text = "Fire Blast"
-            cell.diceNumLbl.text = String("\(data[indexPath.row].diceCount),\(data[indexPath.row].diceType)")
+            cell.diceData = data[indexPath.row]
             
             return cell
             
@@ -80,25 +86,30 @@ class CustomDiceViewController: UIViewController,UITabBarDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        
-        
         return 70
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        isPopOpen = true
+        
         tableView.deselectRow(at: indexPath, animated: false)
+        
+        for view in self.view.subviews{
+            view.isUserInteractionEnabled = false
+        }
         
         if let cell = tableView.cellForRow(at: indexPath) as? CustomDiceCell{
             
             
+            self.view.addSubview(popView)
             
         }
         
     
     }
-
+    
+    
   
 
 }

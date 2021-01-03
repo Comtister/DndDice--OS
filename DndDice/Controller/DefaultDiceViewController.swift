@@ -110,16 +110,12 @@ class DefaultDiceViewController: UIViewController {
     
     @objc public func zare(_ sender : DiceView){
         
-        //İyileştirilecek
-        if diceShow == true{
-            diceShow = false
-            popView.removeFromSuperview()
-            return
-        }
-
-        
         self.view.addSubview(popView)
-         diceShow = true
+        diceShow = true
+        
+        for view in self.view.subviews{
+            view.isUserInteractionEnabled = false
+        }
         
         if let diceResult = DiceRoller.diceRoll(diceId: sender.tag, extras: (diceKat,diceBonus)){
             print(diceResult)
@@ -134,13 +130,17 @@ class DefaultDiceViewController: UIViewController {
     
     
     @IBAction func closePop(){
-       
+        
         if diceShow == true{
             popView.removeFromSuperview()
             diceShow = false
-        }else{
-            return
+            
+            for view in self.view.subviews{
+                view.isUserInteractionEnabled = true
+            }
+            
         }
+      
        
     }
     

@@ -13,6 +13,11 @@ class CustomDiceCell: UITableViewCell {
     @IBOutlet var diceTitleLbl : UILabel!
     @IBOutlet var diceNumLbl : UILabel!
 
+    var diceData : DndDice!{
+        didSet{
+            setView()
+        }
+    }
   
     private var selectedState : Bool = false
     
@@ -26,7 +31,29 @@ class CustomDiceCell: UITableViewCell {
         contentView.layer.cornerRadius = 5
         contentView.backgroundColor = .systemGray5
         self.backgroundColor = UIColor(named: "BackgroundGray")
+        
+        
        
+    }
+    
+    private func setView(){
+        
+        var label : String = String()
+        
+        label.append(String(diceData.diceCount))
+        label.append(diceData.diceType.description)
+        
+        if let bonus = diceData.diceBonus{
+            
+            if bonus > 0{
+                label.append("+\(bonus)")
+            }else{
+                label.append("\(bonus)")
+            }
+            
+        }
+        diceNumLbl.text = label
+        
     }
     
     
@@ -50,6 +77,7 @@ class CustomDiceCell: UITableViewCell {
         
       
     }
+    
     
     private func selectAnim(){
        

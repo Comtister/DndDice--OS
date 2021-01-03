@@ -7,33 +7,20 @@
 
 import Foundation
 
-class DndDice: DiceRoll {
+class DndDice {
     
-    private var _diceId : Int
+    
     private var _diceCount : Int
     private var _diceType : DiceType
-    private var _diceBonus : Int
+    private var _diceBonus : Int?
     
-    init(diceId : Int , diceCount : Int , diceType : DiceType , diceBonus : Int) {
-        self._diceId = diceId
+    init(diceCount : Int , diceType : DiceType , diceBonus : Int?) {
+       
         self._diceCount = diceCount
         self._diceType = diceType
-        self._diceBonus = diceBonus
+        self._diceBonus = diceBonus == 0 ? nil : diceBonus
     }
     
-    
-    func roll() -> Int {
-        return 0
-    }
-    
-    
-    var diceId : Int{
-        get{
-            return _diceId
-        }set{
-            _diceId = newValue
-        }
-    }
     
     var diceCount : Int{
         get{
@@ -51,11 +38,12 @@ class DndDice: DiceRoll {
         }
     }
     
-    var diceBonus : Int{
+    var diceBonus : Int?{
         get{
             return _diceBonus
         }set{
-            _diceBonus = newValue
+            _diceBonus = newValue == 0 ? nil : newValue
+            
         }
     }
     
