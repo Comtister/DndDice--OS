@@ -62,7 +62,7 @@
             <objects>
                 <viewController storyboardIdentifier="DefaultDiceController" id="0eu-L0-bFj" customClass="DefaultDiceViewController" customModule="DndDice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xgn-Tq-2zn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="613"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="613.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ovi-4A-mIu">
@@ -246,14 +246,63 @@
                     <view key="view" contentMode="scaleToFill" id="QuH-z6-Pmo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="613.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aXD-So-fnf">
+                                <rect key="frame" x="0.0" y="44" width="375" height="569.5"/>
+                                <color key="backgroundColor" name="BackgroundGray"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="70" id="IUT-W6-dll" customClass="CustomDiceCell" customModule="DndDice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IUT-W6-dll" id="ake-Hc-0rr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fire Bolt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zy-eo-RIV">
+                                                    <rect key="frame" x="20" y="11" width="71.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2d6+5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tig-N1-OEQ">
+                                                    <rect key="frame" x="20" y="38.5" width="51" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Tig-N1-OEQ" firstAttribute="bottom" secondItem="ake-Hc-0rr" secondAttribute="bottomMargin" id="0JF-8u-7Gj"/>
+                                                <constraint firstItem="Tig-N1-OEQ" firstAttribute="leading" secondItem="ake-Hc-0rr" secondAttribute="leadingMargin" id="Lv6-LP-Id7"/>
+                                                <constraint firstItem="5zy-eo-RIV" firstAttribute="leading" secondItem="ake-Hc-0rr" secondAttribute="leadingMargin" id="U1g-jw-aWy"/>
+                                                <constraint firstItem="5zy-eo-RIV" firstAttribute="top" secondItem="ake-Hc-0rr" secondAttribute="topMargin" id="xYq-bC-UBK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="diceNumLbl" destination="Tig-N1-OEQ" id="8VZ-eF-Bli"/>
+                                            <outlet property="diceTitleLbl" destination="5zy-eo-RIV" id="9Vo-bL-tLG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Xk7-YS-1n0"/>
                         <color key="backgroundColor" name="BackgroundGray"/>
+                        <constraints>
+                            <constraint firstItem="aXD-So-fnf" firstAttribute="top" secondItem="Xk7-YS-1n0" secondAttribute="top" id="E3d-B7-Qby"/>
+                            <constraint firstItem="aXD-So-fnf" firstAttribute="leading" secondItem="Xk7-YS-1n0" secondAttribute="leading" id="QmV-U3-hnF"/>
+                            <constraint firstItem="Xk7-YS-1n0" firstAttribute="bottom" secondItem="aXD-So-fnf" secondAttribute="bottom" id="eI6-ko-90u"/>
+                            <constraint firstItem="Xk7-YS-1n0" firstAttribute="trailing" secondItem="aXD-So-fnf" secondAttribute="trailing" id="yRG-k7-n3z"/>
+                        </constraints>
                     </view>
                     <size key="freeformSize" width="375" height="613.5"/>
+                    <connections>
+                        <outlet property="tableView" destination="aXD-So-fnf" id="hNe-Tk-KZc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKB-rT-hmU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2192" y="739"/>
+            <point key="canvasLocation" x="2189.130434782609" y="738.61607142857144"/>
         </scene>
     </scenes>
     <resources>

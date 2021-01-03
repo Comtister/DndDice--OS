@@ -76,11 +76,8 @@ class DefaultDiceViewController: UIViewController {
             btnBlink(sender: sender)
             diceKat += 1
             katLbl.text = String("\(self.diceKat)D")
-
-        
     }
     @IBAction func katAzalt(_ sender : UIButton){
-        
         btnBlink(sender: sender)
         if diceKat == 1{
             //Alert Shows
@@ -89,8 +86,6 @@ class DefaultDiceViewController: UIViewController {
             diceKat -= 1
             katLbl.text = String("\(diceKat)D")
         }
-        
-        
     }
     @IBAction func bonusArttir(_ sender : UIButton){
         btnBlink(sender: sender)
@@ -118,11 +113,12 @@ class DefaultDiceViewController: UIViewController {
         //İyileştirilecek
         if diceShow == true{
             diceShow = false
-            closePopAnim()
+            popView.removeFromSuperview()
             return
         }
 
-         openPopAnim()
+        
+        self.view.addSubview(popView)
          diceShow = true
         
         if let diceResult = DiceRoller.diceRoll(diceId: sender.tag, extras: (diceKat,diceBonus)){
@@ -140,7 +136,7 @@ class DefaultDiceViewController: UIViewController {
     @IBAction func closePop(){
        
         if diceShow == true{
-            closePopAnim()
+            popView.removeFromSuperview()
             diceShow = false
         }else{
             return
@@ -173,44 +169,6 @@ extension DefaultDiceViewController{
         
     }
     
-    private func openPopAnim(){
-        
-        popView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-        
-        self.view.addSubview(popView)
-        
-        let animOp : UIViewPropertyAnimator = UIViewPropertyAnimator.init(duration: 0.05, curve: .linear, animations: {
-            //self.popView.frame.size = CGSize(width: self.view.frame.height/3, height: self.view.frame.height/3)
-            self.popView.transform = .identity
-            //self.popView.alpha = 0.5
-        })
-        
-        
-        animOp.startAnimation()
-        
-    }
-    
-    private func closePopAnim(){
-        
-        popView.transform = .identity
-        
-        let animClose : UIViewPropertyAnimator = UIViewPropertyAnimator(duration: 0.05, curve: .linear, animations: {
-            self.popView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-        })
-        
-        animClose.addCompletion({_ in
-            self.popView.removeFromSuperview()
-        })
-        
-        animClose.startAnimation()
-        
-    }
-    
-    
    
-    
-    
-    
-    
     
 }

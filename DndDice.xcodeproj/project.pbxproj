@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520FC4F725A0D2E70066A4E6 /* CustomDiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FC4F625A0D2E70066A4E6 /* CustomDiceCell.swift */; };
+		520FC4FA25A12D050066A4E6 /* DndDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FC4F925A12D050066A4E6 /* DndDice.swift */; };
+		520FC4FE25A12D5C0066A4E6 /* DiceRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FC4FD25A12D5C0066A4E6 /* DiceRoll.swift */; };
+		520FC50325A13A670066A4E6 /* DiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FC50225A13A670066A4E6 /* DiceType.swift */; };
 		526928DE25976AB600518442 /* DiceRoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526928DD25976AB600518442 /* DiceRoller.swift */; };
 		526928E125977F6000518442 /* DicePop.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526928E025977F6000518442 /* DicePop.xib */; };
 		526928E4259787FB00518442 /* DicePop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526928E3259787FB00518442 /* DicePop.swift */; };
@@ -26,6 +30,10 @@
 
 /* Begin PBXFileReference section */
 		4CCBCDB2FC73B328F9AA668E /* Pods-DndDice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DndDice.release.xcconfig"; path = "Target Support Files/Pods-DndDice/Pods-DndDice.release.xcconfig"; sourceTree = "<group>"; };
+		520FC4F625A0D2E70066A4E6 /* CustomDiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDiceCell.swift; sourceTree = "<group>"; };
+		520FC4F925A12D050066A4E6 /* DndDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DndDice.swift; sourceTree = "<group>"; };
+		520FC4FD25A12D5C0066A4E6 /* DiceRoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoll.swift; sourceTree = "<group>"; };
+		520FC50225A13A670066A4E6 /* DiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceType.swift; sourceTree = "<group>"; };
 		526928DD25976AB600518442 /* DiceRoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoller.swift; sourceTree = "<group>"; };
 		526928E025977F6000518442 /* DicePop.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DicePop.xib; sourceTree = "<group>"; };
 		526928E3259787FB00518442 /* DicePop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicePop.swift; sourceTree = "<group>"; };
@@ -58,10 +66,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		520FC4FC25A12D200066A4E6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				520FC4FD25A12D5C0066A4E6 /* DiceRoll.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		520FC50125A13A4B0066A4E6 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				520FC50225A13A670066A4E6 /* DiceType.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		526928E62597D54000518442 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				526928DD25976AB600518442 /* DiceRoller.swift */,
+				520FC4F925A12D050066A4E6 /* DndDice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -73,6 +98,7 @@
 				52D7EE462577DE0B001B1121 /* DiceView.swift */,
 				526928E025977F6000518442 /* DicePop.xib */,
 				526928E3259787FB00518442 /* DicePop.swift */,
+				520FC4F625A0D2E70066A4E6 /* CustomDiceCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,6 +144,8 @@
 		52FD68AB254C4C1D00EE6C62 /* DndDice */ = {
 			isa = PBXGroup;
 			children = (
+				520FC50125A13A4B0066A4E6 /* Constants */,
+				520FC4FC25A12D200066A4E6 /* Protocols */,
 				526928E92597D56500518442 /* Storyboards */,
 				526928E82597D55200518442 /* Controller */,
 				526928E72597D54C00518442 /* View */,
@@ -266,10 +294,14 @@
 				526928DE25976AB600518442 /* DiceRoller.swift in Sources */,
 				52FD68B1254C4C1D00EE6C62 /* ViewController.swift in Sources */,
 				52851819255C4225008F4B1D /* DefaultDiceViewController.swift in Sources */,
+				520FC50325A13A670066A4E6 /* DiceType.swift in Sources */,
+				520FC4F725A0D2E70066A4E6 /* CustomDiceCell.swift in Sources */,
 				5285181C255C457A008F4B1D /* CustomDiceViewController.swift in Sources */,
 				526928E4259787FB00518442 /* DicePop.swift in Sources */,
 				52FD68AD254C4C1D00EE6C62 /* AppDelegate.swift in Sources */,
+				520FC4FE25A12D5C0066A4E6 /* DiceRoll.swift in Sources */,
 				52FD68AF254C4C1D00EE6C62 /* SceneDelegate.swift in Sources */,
+				520FC4FA25A12D050066A4E6 /* DndDice.swift in Sources */,
 				52D7EE472577DE0B001B1121 /* DiceView.swift in Sources */,
 				52851816255C41E8008F4B1D /* PageViewController.swift in Sources */,
 			);

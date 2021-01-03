@@ -20,6 +20,8 @@ class DiceView: UIControl{
         customInit()
     }
     
+    
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         customInit()
