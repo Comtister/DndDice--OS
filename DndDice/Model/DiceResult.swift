@@ -9,14 +9,25 @@ import Foundation
 
 struct DiceResult{
    
-    private var result : Int
-    private var results : [Int]
+    private var _result : Int
+    private var _results : [Int]
     
-    init(result : Int , results : [Int]) {
-        self.result = result
-        self.results = results
+    init(_result : Int , _results : [Int]) {
+        self._result = _result
+        self._results = _results
     }
     
+    var result : Int{
+        get{
+            return _result
+        }
+    }
+    
+    var results : [Int]{
+        get{
+            return _results
+        }
+    }
     
     
 }

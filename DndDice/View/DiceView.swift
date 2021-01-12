@@ -15,6 +15,8 @@ class DiceView: UIControl{
     @IBOutlet weak var topForm : UIView!
     @IBOutlet weak var bottomForm : UIView!
     
+    var diceId : DiceType!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         customInit()

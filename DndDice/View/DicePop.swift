@@ -11,22 +11,10 @@ class DicePop: UIView {
 
     @IBOutlet weak var diceTitle: UILabel!
     @IBOutlet weak var diceResult: UILabel!
-    @IBOutlet weak var diceValues: UITextView!
+    @IBOutlet weak var diceValues: UILabel!
     
     override func draw(_ rect: CGRect) {
-        print("Has Has")
         self.openAnim()
-    }
-    
-    override func removeFromSuperview() {
-        let anim = self.closeAnim()
-        
-        anim.addCompletion({_ in
-            super.removeFromSuperview()
-        })
-        
-        anim.startAnimation()
-        
     }
     
     override init(frame: CGRect) {
@@ -39,6 +27,86 @@ class DicePop: UIView {
         loadView()
     }
     
+    override func removeFromSuperview() {
+    
+        let anim = self.closeAnim()
+        
+        anim.addCompletion({_ in
+            super.removeFromSuperview()
+        })
+        
+        anim.startAnimation()
+        
+    }
+    
+    
+    
+    public func setData(rawDice : DndDice , data : DiceResult){
+      
+        var bonus : String = ""
+        diceValues.text = ""
+        diceResult.text = ""
+        diceTitle.text = ""
+        var resultArrayIndex = 0
+        
+        if rawDice.diceBonus != nil && rawDice.diceBonus != 0{
+            bonus = rawDice.diceBonus! > 0 ? String("+\(rawDice.diceBonus!)") : String(rawDice.diceBonus!)
+        }
+        
+        diceTitle.text = "\(rawDice.diceCount)\(rawDice.diceType)\(bonus)"
+        diceResult.text = String(data.result)
+       
+        for values in data.results{
+            
+            if data.results.count != 1{
+                
+                if  resultArrayIndex + 1 == data.results.count{
+                    diceValues.text?.append(String("\(values)"))
+                    return
+                }
+                
+                diceValues.text?.append(String("\(values),"))
+                
+                
+            }
+            resultArrayIndex += 1
+        }
+        
+    
+    }
+    
+    public func setData(Title : String , data : DiceResult){
+      
+        diceValues.text = ""
+        diceResult.text = ""
+        diceTitle.text = ""
+        var resultArrayIndex = 0
+      
+        diceTitle.text = Title
+        
+        diceResult.text = String(data.result)
+       
+        for values in data.results{
+            
+            if data.results.count != 1{
+                
+                if  resultArrayIndex + 1 == data.results.count{
+                    diceValues.text?.append(String("\(values)"))
+                    return
+                }
+                
+                diceValues.text?.append(String("\(values),"))
+                
+                
+            }
+            resultArrayIndex += 1
+        }
+        
+    
+    }
+    
+    
+   
     func loadView(){
     
         let view = Bundle.main.loadNibNamed("DicePop", owner: self, options: nil)![0] as! UIView
@@ -46,8 +114,6 @@ class DicePop: UIView {
         view.layer.cornerRadius = 10
         addSubview(view)
        
-        
-        
     }
    
     //MARK:-Animation Functions
@@ -63,14 +129,13 @@ class DicePop: UIView {
         
     }
     
-    private func closeAnim() -> UIViewPropertyAnimator{
+    private func closeAnim() ->UIViewPropertyAnimator {
         
-        let closeAnim = UIViewPropertyAnimator(duration: 0.05, curve: .linear, animations: {
+    let closeAnim = UIViewPropertyAnimator(duration: 0.05, curve: .linear, animations: {
             self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         })
-        
-        return closeAnim
-        
+                
+            return closeAnim
     }
     
 

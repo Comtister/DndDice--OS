@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O8a-Ss-mmy">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,14 +14,14 @@
             <objects>
                 <viewController id="O8a-Ss-mmy" customClass="ViewController" customModule="DndDice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NXL-Os-5Ah">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adU-3x-9Mw">
-                                <rect key="frame" x="0.0" y="44" width="414" height="65.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXZ-4k-XZI">
-                                <rect key="frame" x="0.0" y="109.5" width="414" height="752.5"/>
+                                <rect key="frame" x="0.0" y="53.5" width="375" height="613.5"/>
                                 <color key="backgroundColor" name="BackgroundGray"/>
                                 <connections>
                                     <segue destination="hcv-V0-q2b" kind="embed" identifier="dahiliSegue" id="nbB-EV-xKZ"/>
@@ -242,13 +242,13 @@
         <!--Custom Dice View Controller-->
         <scene sceneID="POJ-NW-zxN">
             <objects>
-                <viewController storyboardIdentifier="CustomDiceController" id="ytB-a0-ho2" customClass="CustomDiceViewController" customModule="DndDice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomDiceController" modalPresentationStyle="fullScreen" id="ytB-a0-ho2" customClass="CustomDiceViewController" customModule="DndDice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QuH-z6-Pmo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="613.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aXD-So-fnf">
-                                <rect key="frame" x="0.0" y="44" width="375" height="569.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="613.5"/>
                                 <color key="backgroundColor" name="BackgroundGray"/>
                                 <gestureRecognizers/>
                                 <prototypes>
@@ -260,13 +260,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fire Bolt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zy-eo-RIV">
-                                                    <rect key="frame" x="20" y="11" width="71.5" height="24"/>
+                                                    <rect key="frame" x="16" y="11" width="71.5" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2d6+5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tig-N1-OEQ">
-                                                    <rect key="frame" x="20" y="38.5" width="51" height="20.5"/>
+                                                    <rect key="frame" x="16" y="38.5" width="51" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -304,6 +304,7 @@
                     <connections>
                         <outlet property="tableView" destination="aXD-So-fnf" id="hNe-Tk-KZc"/>
                         <outlet property="tapGesture" destination="by6-2l-j3U" id="zob-TE-Ejq"/>
+                        <segue destination="JpP-gD-H11" kind="presentation" identifier="goDiceSave" modalPresentationStyle="fullScreen" id="7on-fS-VTg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKB-rT-hmU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -314,6 +315,21 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2189.130434782609" y="738.61607142857144"/>
+        </scene>
+        <!--Dice Save View Controller-->
+        <scene sceneID="pRL-UL-1br">
+            <objects>
+                <viewController id="JpP-gD-H11" customClass="DiceSaveViewController" customModule="DndDice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rhA-E6-gn4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="W2A-xM-oAy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ak-Q9-0z3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3058" y="739"/>
         </scene>
     </scenes>
     <resources>

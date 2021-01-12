@@ -13,12 +13,7 @@ class CustomDiceCell: UITableViewCell {
     @IBOutlet var diceTitleLbl : UILabel!
     @IBOutlet var diceNumLbl : UILabel!
 
-    var diceData : DndDice!{
-        didSet{
-            setView()
-        }
-    }
-  
+   
     private var selectedState : Bool = false
     
     override func prepareForReuse() {
@@ -36,23 +31,35 @@ class CustomDiceCell: UITableViewCell {
        
     }
     
-    private func setView(){
+    public func setTexts(Dice : CustomDndDice){
+       
+        var bonus : String = ""
+        var diceLabel : String = ""
+        diceNumLbl.text = ""
         
-        var label : String = String()
+        diceTitleLbl.text = Dice.diceName
         
-        label.append(String(diceData.diceCount))
-        label.append(diceData.diceType.description)
-        
-        if let bonus = diceData.diceBonus{
+        for dice in Dice.dices{
             
-            if bonus > 0{
-                label.append("+\(bonus)")
+            if dice.diceBonus != nil && dice.diceBonus != 0{
+                bonus = dice.diceBonus! > 0 ? String("+\(dice.diceBonus!)") : String(dice.diceBonus!)
             }else{
-                label.append("\(bonus)")
+                bonus = ""
             }
             
+            if dice === Dice.dices.last{
+                diceLabel = String("\(dice.diceCount)\(dice.diceType)\(bonus)")
+                diceNumLbl.text?.append(diceLabel)
+                return
+            }
+            
+            diceLabel = String("\(dice.diceCount)\(dice.diceType)\(bonus)/")
+            
+            diceNumLbl.text?.append(diceLabel)
+            
         }
-        diceNumLbl.text = label
+        
+        
         
     }
     

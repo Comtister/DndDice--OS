@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DndDice {
+class DndDice : DiceRoll {
     
     
     private var _diceCount : Int
@@ -21,6 +21,40 @@ class DndDice {
         self._diceBonus = diceBonus == 0 ? nil : diceBonus
     }
     
+    func roll() -> DiceResult? {
+        
+        var tekdegerler : [Int] = []
+        
+        var zar : Int = Int.random(in: 1...self.diceType.rawValue)
+       
+        
+        tekdegerler.append(zar)
+        
+        if self._diceCount > 1{
+            for _ in 0..<self._diceCount-1{
+                
+                let extraZar : Int = Int.random(in: 1...self.diceType.rawValue)
+               
+                
+                tekdegerler.append(extraZar)
+                zar += extraZar
+                
+            }
+        }
+        
+        zar += self._diceBonus ?? 0
+        
+        if zar <= 0{
+            return nil
+        }
+        
+        let result : DiceResult = DiceResult(_result: zar, _results: tekdegerler)
+        
+        return result
+        
+        
+        
+    }
     
     var diceCount : Int{
         get{

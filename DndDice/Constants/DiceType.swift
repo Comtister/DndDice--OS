@@ -7,15 +7,15 @@
 
 import Foundation
 
-enum DiceType : LosslessStringConvertible {
+enum DiceType : Int, LosslessStringConvertible {
     
-    case d4
-    case d6
-    case d8
-    case d10
-    case d12
-    case d20
-    case d100
+    case d4 = 4
+    case d6 = 6
+    case d8 = 8
+    case d10 = 10
+    case d12 = 12
+    case d20 = 20
+    case d100 = 100
     
     init?(_ description: String) {
        
@@ -45,8 +45,6 @@ enum DiceType : LosslessStringConvertible {
             case .d12: return "d12"
             case .d20: return "d20"
             case .d100: return "d100"
-            default:
-                return ""
             }
         }
     }

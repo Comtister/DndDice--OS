@@ -14,9 +14,10 @@
 		520FC50E25A1DB150066A4E6 /* ControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FC50D25A1DB150066A4E6 /* ControllerExtensions.swift */; };
 		520FC51125A1FFC90066A4E6 /* DiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FC51025A1FFC90066A4E6 /* DiceResult.swift */; };
 		520FC51425A211F40066A4E6 /* CustomDndDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FC51325A211F40066A4E6 /* CustomDndDice.swift */; };
-		526928DE25976AB600518442 /* DiceRoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526928DD25976AB600518442 /* DiceRoller.swift */; };
 		526928E125977F6000518442 /* DicePop.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526928E025977F6000518442 /* DicePop.xib */; };
 		526928E4259787FB00518442 /* DicePop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526928E3259787FB00518442 /* DicePop.swift */; };
+		526B5B5625ADD6DE007C4F7A /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B5B5525ADD6DE007C4F7A /* ViewExtensions.swift */; };
+		526B5B6225AE4A9D007C4F7A /* DiceSaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B5B6125AE4A9D007C4F7A /* DiceSaveViewController.swift */; };
 		52851816255C41E8008F4B1D /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52851815255C41E8008F4B1D /* PageViewController.swift */; };
 		52851819255C4225008F4B1D /* DefaultDiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52851818255C4225008F4B1D /* DefaultDiceViewController.swift */; };
 		5285181C255C457A008F4B1D /* CustomDiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5285181B255C457A008F4B1D /* CustomDiceViewController.swift */; };
@@ -40,9 +41,10 @@
 		520FC50D25A1DB150066A4E6 /* ControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerExtensions.swift; sourceTree = "<group>"; };
 		520FC51025A1FFC90066A4E6 /* DiceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceResult.swift; sourceTree = "<group>"; };
 		520FC51325A211F40066A4E6 /* CustomDndDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDndDice.swift; sourceTree = "<group>"; };
-		526928DD25976AB600518442 /* DiceRoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoller.swift; sourceTree = "<group>"; };
 		526928E025977F6000518442 /* DicePop.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DicePop.xib; sourceTree = "<group>"; };
 		526928E3259787FB00518442 /* DicePop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicePop.swift; sourceTree = "<group>"; };
+		526B5B5525ADD6DE007C4F7A /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		526B5B6125AE4A9D007C4F7A /* DiceSaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSaveViewController.swift; sourceTree = "<group>"; };
 		52851815255C41E8008F4B1D /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		52851818255C4225008F4B1D /* DefaultDiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDiceViewController.swift; sourceTree = "<group>"; };
 		5285181B255C457A008F4B1D /* CustomDiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDiceViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				520FC50D25A1DB150066A4E6 /* ControllerExtensions.swift */,
+				526B5B5525ADD6DE007C4F7A /* ViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -99,7 +102,6 @@
 		526928E62597D54000518442 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				526928DD25976AB600518442 /* DiceRoller.swift */,
 				520FC4F925A12D050066A4E6 /* DndDice.swift */,
 				520FC51025A1FFC90066A4E6 /* DiceResult.swift */,
 				520FC51325A211F40066A4E6 /* CustomDndDice.swift */,
@@ -126,6 +128,7 @@
 				52851815255C41E8008F4B1D /* PageViewController.swift */,
 				52851818255C4225008F4B1D /* DefaultDiceViewController.swift */,
 				5285181B255C457A008F4B1D /* CustomDiceViewController.swift */,
+				526B5B6125AE4A9D007C4F7A /* DiceSaveViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -308,7 +311,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				526928DE25976AB600518442 /* DiceRoller.swift in Sources */,
 				52FD68B1254C4C1D00EE6C62 /* ViewController.swift in Sources */,
 				52851819255C4225008F4B1D /* DefaultDiceViewController.swift in Sources */,
 				520FC50325A13A670066A4E6 /* DiceType.swift in Sources */,
@@ -318,8 +320,10 @@
 				5285181C255C457A008F4B1D /* CustomDiceViewController.swift in Sources */,
 				526928E4259787FB00518442 /* DicePop.swift in Sources */,
 				52FD68AD254C4C1D00EE6C62 /* AppDelegate.swift in Sources */,
+				526B5B6225AE4A9D007C4F7A /* DiceSaveViewController.swift in Sources */,
 				520FC4FE25A12D5C0066A4E6 /* DiceRoll.swift in Sources */,
 				52FD68AF254C4C1D00EE6C62 /* SceneDelegate.swift in Sources */,
+				526B5B5625ADD6DE007C4F7A /* ViewExtensions.swift in Sources */,
 				520FC4FA25A12D050066A4E6 /* DndDice.swift in Sources */,
 				520FC50E25A1DB150066A4E6 /* ControllerExtensions.swift in Sources */,
 				52D7EE472577DE0B001B1121 /* DiceView.swift in Sources */,

@@ -14,7 +14,7 @@ class CustomDiceViewController: UIViewController,UITabBarDelegate,UITableViewDat
     @IBOutlet var tableView : UITableView!
     @IBOutlet var tapGesture : UITapGestureRecognizer!
     
-    var data : [DndDice] = [DndDice]()
+    var data : [CustomDndDice] = [CustomDndDice]()
     
     var popView : DicePop!
     var isPopOpen : Bool = false
@@ -23,20 +23,29 @@ class CustomDiceViewController: UIViewController,UITabBarDelegate,UITableViewDat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        popView = DicePop(frame: CGRect(x: 0, y: 0, width: self.view.frame.height/3, height: self.view.frame.height/3))
        
-        popView.center = view.center
+        popView = DicePop(frame: CGRect(x: 0, y: 0, width: self.view.frame.height/3, height: self.view.frame.height/3))
+        
+        popView.center.x = view.center.x
+        popView.center.y = view.center.y - popView.frame.height / 2
         
         tapGesture.cancelsTouchesInView = false
         
-        let dice = DndDice(diceCount: 1, diceType: .d6, diceBonus: 0)
+        let dice = DndDice(diceCount: 1, diceType: .d6, diceBonus: 4)
+        let dice2 = DndDice(diceCount: 1, diceType: .d6, diceBonus: 0)
+        var dices : [DndDice] = [DndDice]()
+        dices.append(dice)
+        dices.append(dice2)
+        
+        let cDice = CustomDndDice(diceId: 0, diceName: "FireBolt", dices:dices )
+        
+        data.append(cDice)
         
         
-        data.append(dice)
         
         addButon = UIButton()
         setTableButton(object: addButon, x: 20, y: 20, width: 100, height: 50)
+        addButon.addTarget(self, action: #selector(saveScreen(_:)), for: .touchUpInside)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -61,21 +70,22 @@ class CustomDiceViewController: UIViewController,UITabBarDelegate,UITableViewDat
     
     
     @objc func saveScreen(_ sender : UIButton){
-        
+        sender.blinkAnim(sender: sender)
+        performSegue(withIdentifier: "goDiceSave", sender: nil)
        
         
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomDiceCell{
             
-            cell.diceData = data[indexPath.row]
+            cell.setTexts(Dice: data[indexPath.row])
             
             return cell
             
@@ -99,12 +109,16 @@ class CustomDiceViewController: UIViewController,UITabBarDelegate,UITableViewDat
             view.isUserInteractionEnabled = false
         }
         
-        if let cell = tableView.cellForRow(at: indexPath) as? CustomDiceCell{
+        if let result : DiceResult = data[indexPath.row].roll(){
             
+            popView.setData(Title: data[indexPath.row].diceName, data: result)
             
-            self.view.addSubview(popView)
             
         }
+        
+        self.view.addSubview(popView)
+        
+       
         
     
     }

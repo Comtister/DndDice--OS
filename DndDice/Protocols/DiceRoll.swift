@@ -9,6 +9,8 @@ import Foundation
 
 protocol DiceRoll {
     
-    func roll() -> DiceResult
+   
+    
+    func roll() -> DiceResult?
     
 }

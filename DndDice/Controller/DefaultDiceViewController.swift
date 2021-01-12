@@ -13,6 +13,7 @@ class DefaultDiceViewController: UIViewController {
     
     @IBOutlet var diceStack : [DiceView]!
     let diceStackNames : [String] = ["d4","d6","d8","d10","d12","d20","d100"]
+    let diceTypes : [DiceType] = [.d4,.d6,.d8,.d10,.d12,.d20,.d100]
     
     @IBOutlet var katArttirBtn : UIButton!
     @IBOutlet var katAzaltBtn : UIButton!
@@ -32,9 +33,11 @@ class DefaultDiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-         popView = DicePop(frame: CGRect(x: 0, y: 0, width: self.view.frame.height/3, height: self.view.frame.height/3))
+        popView = DicePop(frame: CGRect(x: 0, y: 0, width: self.view.frame.height/3, height: self.view.frame.height/3))
         
-         popView.center = view.center
+        popView.center.x = view.center.x
+        popView.center.y = view.center.y - popView.frame.height / 2
+        
         
         setZarStack()
         setButonViews()
@@ -50,8 +53,8 @@ class DefaultDiceViewController: UIViewController {
         var index : Int8 = 0
         for zar in diceStack{
             zar.image.image = UIImage(named: diceStackNames[Int(index)])
-            zar.tag = Int(index)
-            zar.addTarget(self, action: #selector(zare(_:)), for: .touchUpInside)
+            zar.diceId = diceTypes[Int(index)]
+            zar.addTarget(self, action: #selector(DiceRollAction(_:)), for: .touchUpInside)
             index += 1
         }
       
@@ -73,12 +76,12 @@ class DefaultDiceViewController: UIViewController {
     
     
     @IBAction func katArttir(_ sender : UIButton) {
-            btnBlink(sender: sender)
+            sender.blinkAnim(sender: sender)
             diceKat += 1
             katLbl.text = String("\(self.diceKat)D")
     }
     @IBAction func katAzalt(_ sender : UIButton){
-        btnBlink(sender: sender)
+        sender.blinkAnim(sender: sender)
         if diceKat == 1{
             //Alert Shows
             return
@@ -88,7 +91,8 @@ class DefaultDiceViewController: UIViewController {
         }
     }
     @IBAction func bonusArttir(_ sender : UIButton){
-        btnBlink(sender: sender)
+        
+        sender.blinkAnim(sender: sender)
         diceBonus += 1
         if diceBonus >= 0{
             bonusLbl.text = String("+\(diceBonus)")
@@ -99,7 +103,8 @@ class DefaultDiceViewController: UIViewController {
         
     }
     @IBAction func bonusAzalt(_ sender : UIButton){
-        btnBlink(sender: sender)
+       
+        sender.blinkAnim(sender: sender)
         diceBonus -= 1
         if diceBonus >= 0{
             bonusLbl.text = String("+\(diceBonus)")
@@ -108,27 +113,31 @@ class DefaultDiceViewController: UIViewController {
         }
     }
     
-    @objc public func zare(_ sender : DiceView){
+    
+    //MARK:-ViewPop and show results
+    @objc public func DiceRollAction(_ sender : DiceView){
         
-        self.view.addSubview(popView)
-        diceShow = true
+        let dice : DndDice = DndDice(diceCount: diceKat, diceType: sender.diceId, diceBonus: diceBonus)
         
-        for view in self.view.subviews{
-            view.isUserInteractionEnabled = false
+        if let result = dice.roll(){
+            
+            popView.setData(rawDice: dice, data: result)
+            
+            self.view.addSubview(popView)
+            diceShow = true
+            
+            for view in self.view.subviews{
+                view.isUserInteractionEnabled = false
+            }
+            
         }
         
-        if let diceResult = DiceRoller.diceRoll(diceId: sender.tag, extras: (diceKat,diceBonus)){
-            print(diceResult)
-            popView.diceTitle.text = "\(diceKat)d + \(diceBonus)"
-            popView.diceResult.text = "\(diceResult.0)"
-            popView.diceValues.text = "\(diceResult.1)"
-        }else{
-            //Alert Show
-        }
+       
+        
+       
             
     }
-    
-    
+    //MARK:-Gesture func close pop
     @IBAction func closePop(){
         
         if diceShow == true{
@@ -138,37 +147,10 @@ class DefaultDiceViewController: UIViewController {
             for view in self.view.subviews{
                 view.isUserInteractionEnabled = true
             }
-            
         }
-      
-       
     }
     
 
 }
 
-//MARK:-Animations
-extension DefaultDiceViewController{
-    
-    private func btnBlink(sender : UIButton){
-        
-        let animOne = UIViewPropertyAnimator(duration: 0.1, curve: .linear, animations: {
-            sender.alpha = 0.5
-            
-        })
-        
-        let animTwo = UIViewPropertyAnimator(duration: 0.1, curve: .linear, animations: {
-            sender.alpha = 1.0
-        })
-        
-        animOne.addCompletion({ _ in
-            animTwo.startAnimation()
-        })
-      
-        animOne.startAnimation()
-        
-    }
-    
-   
-    
-}
+
