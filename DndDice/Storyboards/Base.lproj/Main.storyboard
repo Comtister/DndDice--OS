@@ -323,13 +323,65 @@
                     <view key="view" contentMode="scaleToFill" id="rhA-E6-gn4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7X5-VW-jgv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nlH-ju-yYI">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nlH-ju-yYI" firstAttribute="bottom" secondItem="TL6-xq-Gjm" secondAttribute="bottom" id="9VZ-GY-zX6"/>
+                                    <constraint firstItem="nlH-ju-yYI" firstAttribute="leading" secondItem="TL6-xq-Gjm" secondAttribute="leading" id="S3N-9f-Sev"/>
+                                    <constraint firstItem="nlH-ju-yYI" firstAttribute="width" secondItem="GgT-Hs-Qaa" secondAttribute="width" id="Sdi-Zt-D5s"/>
+                                    <constraint firstItem="nlH-ju-yYI" firstAttribute="top" secondItem="TL6-xq-Gjm" secondAttribute="top" id="Yle-UK-aIN"/>
+                                    <constraint firstItem="nlH-ju-yYI" firstAttribute="trailing" secondItem="TL6-xq-Gjm" secondAttribute="trailing" id="hXI-yN-IT1"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="TL6-xq-Gjm"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="GgT-Hs-Qaa"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D61-GF-5VZ">
+                                <rect key="frame" x="279" y="607" width="80" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="BarBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="SAVE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TN-u0-IZX">
+                                <rect key="frame" x="191" y="607" width="80" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="BarBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="CANCEL">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeScreen:" destination="JpP-gD-H11" eventType="touchUpInside" id="dfz-OG-Dr6"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="W2A-xM-oAy"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundGray"/>
+                        <constraints>
+                            <constraint firstItem="7X5-VW-jgv" firstAttribute="top" secondItem="W2A-xM-oAy" secondAttribute="top" id="Qdm-Bg-a9N"/>
+                            <constraint firstItem="7X5-VW-jgv" firstAttribute="trailing" secondItem="W2A-xM-oAy" secondAttribute="trailing" id="bx9-PT-zgV"/>
+                            <constraint firstItem="7X5-VW-jgv" firstAttribute="bottom" secondItem="W2A-xM-oAy" secondAttribute="bottom" id="nsk-Qc-qTa"/>
+                            <constraint firstItem="7X5-VW-jgv" firstAttribute="leading" secondItem="W2A-xM-oAy" secondAttribute="leading" id="xpx-fd-REO"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="1TN-u0-IZX" id="8If-ae-xln"/>
+                        <outlet property="saveBtn" destination="D61-GF-5VZ" id="5oL-0g-1he"/>
+                        <outlet property="scrollView" destination="7X5-VW-jgv" id="NaS-vA-hxx"/>
+                        <outlet property="topStackView" destination="nlH-ju-yYI" id="d8b-bj-cW5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ak-Q9-0z3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3058" y="739"/>
+            <point key="canvasLocation" x="3055.1999999999998" y="738.08095952023996"/>
         </scene>
     </scenes>
     <resources>
