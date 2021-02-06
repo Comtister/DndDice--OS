@@ -19,6 +19,7 @@ protocol DiceSaveViewDelegate {
     func diceBonusForwadwark(sender : DiceSaveView)
     
     func diceAdd(sender : DiceSaveView)
+    func diceDelete(sender : DiceSaveView)
     
     
 }

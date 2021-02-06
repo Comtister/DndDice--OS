@@ -19,14 +19,20 @@ class DiceSaveView: UIView {
     @IBOutlet var diceBonusBackwardBtn : UIButton!
 
     @IBOutlet var diceAddBtn : UIButton!
+    @IBOutlet var diceDeleteBtn : UIButton!
     
     @IBOutlet var diceImage : UIImageView!
     
+    @IBOutlet var diceTypeLbl : UILabel!
+    @IBOutlet var diceCountLbl : UILabel!
+    @IBOutlet var diceBonusLbl : UILabel!
+    
     var delegate : DiceSaveViewDelegate?
-   
+    
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        self.loadView()
+        
     }
     
     
@@ -43,7 +49,7 @@ class DiceSaveView: UIView {
     
     private func loadView(){
         
-        let view : UIView = Bundle.main.loadNibNamed("DiceSaveView", owner: self, options: nil)![0] as! UIView
+        let view  = Bundle.main.loadNibNamed("DiceSaveView", owner: self, options: nil)![0] as! UIView
         
         view.frame = self.bounds
         addSubview(view)
@@ -55,6 +61,7 @@ class DiceSaveView: UIView {
         diceBonusForwardBtn.layer.cornerRadius = 5
         diceBonusBackwardBtn.layer.cornerRadius = 5
         
+       
         
         diceTypeForwardBtn.addTarget(self, action: #selector(diceTypeForward), for: .touchUpInside)
         diceTypeBackwardBtn.addTarget(self, action: #selector(diceTypeBackward), for: .touchUpInside)
@@ -63,6 +70,19 @@ class DiceSaveView: UIView {
         diceBonusForwardBtn.addTarget(self, action: #selector(diceBonusForward), for: .touchUpInside)
         diceBonusBackwardBtn.addTarget(self, action: #selector(diceBonusBackward), for: .touchUpInside)
         diceAddBtn.addTarget(self, action: #selector(diceAdd), for: .touchUpInside)
+        diceDeleteBtn.addTarget(self, action: #selector(diceDelete), for: .touchUpInside)
+        
+    }
+    
+    public func setDeleteButtonVisibility(bool : Bool){
+       
+        diceDeleteBtn.isHidden = !bool
+       
+    }
+    
+    public func setAddButtonVisibility(bool : Bool){
+        
+        diceAddBtn.isHidden = !bool
         
     }
     
@@ -105,15 +125,12 @@ class DiceSaveView: UIView {
         diceAddBtn.blinkAnim(sender: self.diceAddBtn)
         delegate?.diceAdd(sender: self)
     }
+    
+    @objc func diceDelete(){
+        diceDeleteBtn.blinkAnim(sender: self.diceDeleteBtn)
+        delegate?.diceDelete(sender: self)
+        
+    }
      
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
 }
