@@ -13,17 +13,21 @@ class CustomDiceViewController: UIViewController,UITabBarDelegate,UITableViewDat
     
     @IBOutlet var tableView : UITableView!
     @IBOutlet var tapGesture : UITapGestureRecognizer!
+    @IBOutlet var longPressGesture : UILongPressGestureRecognizer!
     
     var data : [CustomDndDice] = [CustomDndDice]()
     
     var popView : DicePop!
     var isPopOpen : Bool = false
     
+    let db = DatabaseManager.createOrOpenDatabase()
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        
         popView = DicePop(frame: CGRect(x: 0, y: 0, width: self.view.frame.height/3, height: self.view.frame.height/3))
         
         popView.center.x = view.center.x
@@ -31,17 +35,7 @@ class CustomDiceViewController: UIViewController,UITabBarDelegate,UITableViewDat
         
         tapGesture.cancelsTouchesInView = false
         
-        let dice = DndDice(diceCount: 1, diceType: .d6, diceBonus: 4)
-        let dice2 = DndDice(diceCount: 1, diceType: .d6, diceBonus: 0)
-        var dices : [DndDice] = [DndDice]()
-        dices.append(dice)
-        dices.append(dice2)
-        
-        let cDice = CustomDndDice(diceId: 0, diceName: "FireBolt", dices:dices )
-        
-        data.append(cDice)
-        
-        
+        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
         
         addButon = UIButton()
         setTableButton(object: addButon, x: 20, y: 20, width: 100, height: 50)
@@ -49,9 +43,53 @@ class CustomDiceViewController: UIViewController,UITabBarDelegate,UITableViewDat
         
         tableView.delegate = self
         tableView.dataSource = self
-      
+        tableView.addGestureRecognizer(longPressGesture)
         
        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setData()
+    }
+    
+    @IBAction func unwind(_ segue : UIStoryboardSegue){
+        
+        setData()
+        
+    }
+    
+     public func setData(){
+            print("GİRDİ")
+         data = db.fetchData()
+         tableView.reloadData()
+        
+    }
+    
+    @objc func longPress(_ sender : UILongPressGestureRecognizer){
+        
+        if longPressGesture.state == .began{
+            
+            let point = longPressGesture.location(in: tableView)
+            let touchIndex = tableView.indexPathForRow(at: point)!
+            
+            let deletingDiceId = data[touchIndex.row].diceId
+            
+            let alert = UIAlertController(title: String("Remove \(data[touchIndex.row].diceName)"), message: "are you sure you want to remove", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {_ in
+                self.db.deleteData(id: deletingDiceId)
+                self.data.remove(at: touchIndex.row)
+                
+                self.tableView.reloadData()
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            print(touchIndex)
+            
+        }
+        
+        
     }
     
     @IBAction func tap(_ sender : UITapGestureRecognizer){
@@ -109,15 +147,16 @@ class CustomDiceViewController: UIViewController,UITabBarDelegate,UITableViewDat
             view.isUserInteractionEnabled = false
         }
         
-        if let result : DiceResult = data[indexPath.row].roll(){
+        if let result : DiceResult = data[indexPath.row].roll() , result.result > 0{
             
             popView.setData(Title: data[indexPath.row].diceName, data: result)
-            
-            
+            self.view.addSubview(popView)
+            return
         }
         
-        self.view.addSubview(popView)
-        
+        let alert = UIAlertController(title: "Ops", message: "Dice result zero", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
        
         
     

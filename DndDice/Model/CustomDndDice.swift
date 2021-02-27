@@ -10,11 +10,11 @@ import Foundation
 class CustomDndDice : DiceRoll  {
    
 
-    private var _diceId : Int
+    private var _diceId : String
     private var _diceName : String
     private var _dices : [DndDice]
     
-   init(diceId : Int , diceName : String , dices : [DndDice]) {
+   init(diceId : String , diceName : String , dices : [DndDice]) {
         self._diceId = diceId
         self._diceName = diceName
         self._dices = dices
@@ -60,7 +60,7 @@ class CustomDndDice : DiceRoll  {
     }
     
     
-    var diceId : Int{
+    var diceId : String{
         get{
             return _diceId
         }

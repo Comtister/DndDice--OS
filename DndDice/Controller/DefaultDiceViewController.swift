@@ -84,6 +84,10 @@ class DefaultDiceViewController: UIViewController {
         sender.blinkAnim(sender: sender)
         if diceKat == 1{
             //Alert Shows
+            print("TEST!'")
+            let alert = UIAlertController(title: "Ops", message: "Dice count cannot be less than one", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             return
         }else{
             diceKat -= 1
@@ -119,7 +123,7 @@ class DefaultDiceViewController: UIViewController {
         
         let dice : DndDice = DndDice(diceCount: diceKat, diceType: sender.diceId, diceBonus: diceBonus)
         
-        if let result = dice.roll(){
+        if let result = dice.roll(), result.result > 0 {
             
             popView.setData(rawDice: dice, data: result)
             
@@ -129,13 +133,13 @@ class DefaultDiceViewController: UIViewController {
             for view in self.view.subviews{
                 view.isUserInteractionEnabled = false
             }
-            
+            return
         }
         
-       
+        let alert = UIAlertController(title: "Ops", message: "Dice result zero", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
         
-       
-            
     }
     //MARK:-Gesture func close pop
     @IBAction func closePop(){

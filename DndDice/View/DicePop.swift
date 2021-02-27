@@ -49,9 +49,16 @@ class DicePop: UIView {
         diceTitle.text = ""
         var resultArrayIndex = 0
         
-        if rawDice.diceBonus != nil && rawDice.diceBonus != 0{
-            bonus = rawDice.diceBonus! > 0 ? String("+\(rawDice.diceBonus!)") : String(rawDice.diceBonus!)
+        if rawDice.diceBonus > 0{
+            bonus = String("+\(rawDice.diceBonus)")
+        }else if rawDice.diceBonus == 0{
+            bonus = ""
+        }else{
+            bonus = String(rawDice.diceBonus)
         }
+       
+       
+        
         
         diceTitle.text = "\(rawDice.diceCount)\(rawDice.diceType)\(bonus)"
         diceResult.text = String(data.result)

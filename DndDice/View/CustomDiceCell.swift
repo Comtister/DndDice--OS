@@ -42,7 +42,7 @@ class CustomDiceCell: UITableViewCell {
         for dice in Dice.dices{
             
             if dice.diceBonus != nil && dice.diceBonus != 0{
-                bonus = dice.diceBonus! > 0 ? String("+\(dice.diceBonus!)") : String(dice.diceBonus!)
+                bonus = dice.diceBonus > 0 ? String("+\(dice.diceBonus)") : String(dice.diceBonus)
             }else{
                 bonus = ""
             }

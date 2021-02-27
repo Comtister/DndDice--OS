@@ -279,6 +279,7 @@
                                                 <constraint firstItem="5zy-eo-RIV" firstAttribute="top" secondItem="ake-Hc-0rr" secondAttribute="topMargin" id="xYq-bC-UBK"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="diceNumLbl" destination="Tig-N1-OEQ" id="8VZ-eF-Bli"/>
                                             <outlet property="diceTitleLbl" destination="5zy-eo-RIV" id="9Vo-bL-tLG"/>
@@ -401,9 +402,11 @@
                         <outlet property="scrollView" destination="7X5-VW-jgv" id="NaS-vA-hxx"/>
                         <outlet property="titleLbl" destination="rg5-pk-D7C" id="Cnv-vF-D1o"/>
                         <outlet property="topStackView" destination="nlH-ju-yYI" id="d8b-bj-cW5"/>
+                        <segue destination="hQL-qo-8Kv" kind="unwind" identifier="unwindBack" unwindAction="unwind:" id="d9K-8T-3Bb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ak-Q9-0z3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="hQL-qo-8Kv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3055.1999999999998" y="738.08095952023996"/>
         </scene>

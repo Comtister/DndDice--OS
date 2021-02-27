@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SQLite
 
 class DiceSaveViewController: UIViewController{
     
@@ -22,7 +23,7 @@ class DiceSaveViewController: UIViewController{
     var dicesArray : [String] = ["d4","d6","d8","d10","d12","d20","d100"]
     var diceCursor : Int = 0
     
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         //Touch Gesture Delay Disabled
@@ -30,6 +31,7 @@ class DiceSaveViewController: UIViewController{
         setupScreen()
         
        
+        
     }
     
    
@@ -66,13 +68,19 @@ class DiceSaveViewController: UIViewController{
             dices.append(chart.1)
         }
         
-        print(dices[0].diceType)
+        let customDice = CustomDndDice(diceId: UUID().uuidString, diceName: titleLbl.text!, dices: dices)
+        let db = DatabaseManager.createOrOpenDatabase()
+        db.insertData(customDice: customDice)
+        
+        print(customDice.dices)
         dices.removeAll()
+        
+       
+        performSegue(withIdentifier: "unwindBack", sender: nil)
         
         
     }
     
-  
     @IBAction func closeScreen(_ sender : UIButton){
         
         dismiss(animated: true, completion: nil)
@@ -130,6 +138,7 @@ extension DiceSaveViewController : DiceSaveViewDelegate{
         }
         
         diceData.1.count -= 1
+        diceData.0.diceCount = diceData.1.count
         sender.diceCountLbl.text = String("\(diceData.1.count)d")
         chartArray.changeDiceValue(chart: sender, diceData: diceData)
         
@@ -140,6 +149,7 @@ extension DiceSaveViewController : DiceSaveViewDelegate{
         let diceData = chartArray.getDice(chart: sender)
         
         diceData.1.count += 1
+        diceData.0.diceCount = diceData.1.count
         sender.diceCountLbl.text = String("\(diceData.1.count)d")
         chartArray.changeDiceValue(chart: sender, diceData: diceData)
         
@@ -150,6 +160,7 @@ extension DiceSaveViewController : DiceSaveViewDelegate{
         let diceData = chartArray.getDice(chart: sender)
         
         diceData.1.bonus -= 1
+        diceData.0.diceBonus = diceData.1.bonus
         
         if diceData.1.bonus >= 0{
             sender.diceBonusLbl.text = String("+\(diceData.1.bonus)")
@@ -166,6 +177,8 @@ extension DiceSaveViewController : DiceSaveViewDelegate{
         let diceData = chartArray.getDice(chart: sender)
         
         diceData.1.bonus += 1
+        diceData.0.diceBonus = diceData.1.bonus
+       
         
         if diceData.1.bonus >= 0{
             sender.diceBonusLbl.text = String("+\(diceData.1.bonus)")
@@ -208,7 +221,7 @@ extension DiceSaveViewController : DiceSaveViewDelegate{
         //Bug var düzelt
         let aboveIndex = chartArray.getIndex(chart: sender)
         
-        if aboveIndex! == 0{
+        if aboveIndex! == 0 && chartArray.count > 2{
             return
         }else{
             let aboveChart = chartArray.getChart(at: aboveIndex! - 1)!

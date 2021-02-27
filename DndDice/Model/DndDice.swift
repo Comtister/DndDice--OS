@@ -12,13 +12,13 @@ class DndDice : DiceRoll {
     
     private var _diceCount : Int
     private var _diceType : DiceType
-    private var _diceBonus : Int?
+    private var _diceBonus : Int
     
-    init(diceCount : Int , diceType : DiceType , diceBonus : Int?) {
+    init(diceCount : Int , diceType : DiceType , diceBonus : Int) {
        
         self._diceCount = diceCount
         self._diceType = diceType
-        self._diceBonus = diceBonus == 0 ? nil : diceBonus
+        self._diceBonus = diceBonus
     }
     
     func roll() -> DiceResult? {
@@ -42,7 +42,7 @@ class DndDice : DiceRoll {
             }
         }
         
-        zar += self._diceBonus ?? 0
+        zar += self._diceBonus
         
         if zar <= 0{
             return nil
@@ -72,11 +72,11 @@ class DndDice : DiceRoll {
         }
     }
     
-    var diceBonus : Int?{
+    var diceBonus : Int{
         get{
             return _diceBonus
         }set{
-            _diceBonus = newValue == 0 ? nil : newValue
+            _diceBonus = newValue
             
         }
     }

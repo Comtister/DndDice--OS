@@ -14,6 +14,7 @@
 		520FC50E25A1DB150066A4E6 /* ControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FC50D25A1DB150066A4E6 /* ControllerExtensions.swift */; };
 		520FC51125A1FFC90066A4E6 /* DiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FC51025A1FFC90066A4E6 /* DiceResult.swift */; };
 		520FC51425A211F40066A4E6 /* CustomDndDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520FC51325A211F40066A4E6 /* CustomDndDice.swift */; };
+		52162D9F25DFE48600E05852 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52162D9E25DFE48600E05852 /* DatabaseManager.swift */; };
 		52469FA125BCCDF500DD798D /* ChartList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52469FA025BCCDF500DD798D /* ChartList.swift */; };
 		52469FA425BCD13800DD798D /* ChartListError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52469FA325BCD13800DD798D /* ChartListError.swift */; };
 		526928E125977F6000518442 /* DicePop.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526928E025977F6000518442 /* DicePop.xib */; };
@@ -47,6 +48,7 @@
 		520FC50D25A1DB150066A4E6 /* ControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerExtensions.swift; sourceTree = "<group>"; };
 		520FC51025A1FFC90066A4E6 /* DiceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceResult.swift; sourceTree = "<group>"; };
 		520FC51325A211F40066A4E6 /* CustomDndDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDndDice.swift; sourceTree = "<group>"; };
+		52162D9E25DFE48600E05852 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		52469FA025BCCDF500DD798D /* ChartList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartList.swift; sourceTree = "<group>"; };
 		52469FA325BCD13800DD798D /* ChartListError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartListError.swift; sourceTree = "<group>"; };
 		526928E025977F6000518442 /* DicePop.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DicePop.xib; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				520FC51325A211F40066A4E6 /* CustomDndDice.swift */,
 				52469FA025BCCDF500DD798D /* ChartList.swift */,
 				52E1CBF625CEDD5600C23299 /* DiceInstances.swift */,
+				52162D9E25DFE48600E05852 /* DatabaseManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				526B5B6B25AFB731007C4F7A /* DiceSaveViewDelegate.swift in Sources */,
 				520FC50325A13A670066A4E6 /* DiceType.swift in Sources */,
 				520FC51425A211F40066A4E6 /* CustomDndDice.swift in Sources */,
+				52162D9F25DFE48600E05852 /* DatabaseManager.swift in Sources */,
 				520FC51125A1FFC90066A4E6 /* DiceResult.swift in Sources */,
 				520FC4F725A0D2E70066A4E6 /* CustomDiceCell.swift in Sources */,
 				5285181C255C457A008F4B1D /* CustomDiceViewController.swift in Sources */,

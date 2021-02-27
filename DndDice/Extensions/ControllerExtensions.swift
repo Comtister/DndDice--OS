@@ -20,10 +20,10 @@ extension CustomDiceViewController{
         object.heightAnchor.constraint(equalToConstant: height).isActive = true
         object.widthAnchor.constraint(equalToConstant: width).isActive = true
         
-        object.backgroundColor = .systemGray5
+        object.backgroundColor = UIColor(named: "BarBackgroundColor")
         object.layer.cornerRadius = 10
         object.setTitle("Add Dice", for: .normal)
-        object.setTitleColor(.black, for: .normal)
+        object.setTitleColor(.white, for: .normal)
         
         self.view.bringSubviewToFront(object)
         object.addTarget(self, action: #selector(saveScreen(_:)), for: .touchUpInside)

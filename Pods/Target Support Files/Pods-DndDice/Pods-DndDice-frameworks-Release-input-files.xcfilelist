@@ -1,3 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-DndDice/Pods-DndDice-frameworks.sh
+${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework
 ${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework
 ${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework
+${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework

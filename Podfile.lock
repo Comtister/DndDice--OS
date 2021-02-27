@@ -1,4 +1,7 @@
 PODS:
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - MaterialComponents/AnimationTiming (118.2.0)
   - MaterialComponents/Availability (118.2.0)
   - MaterialComponents/private/Color (118.2.0):
@@ -15,19 +18,28 @@ PODS:
     - MaterialComponents/Ripple
     - MDFInternationalization
   - MDFInternationalization (2.0.0)
+  - SQLite.swift (0.12.2):
+    - SQLite.swift/standard (= 0.12.2)
+  - SQLite.swift/standard (0.12.2)
 
 DEPENDENCIES:
+  - FMDB
   - "MaterialComponents/Tabs+TabBarView"
+  - SQLite.swift (~> 0.12.0)
 
 SPEC REPOS:
   trunk:
+    - FMDB
     - MaterialComponents
     - MDFInternationalization
+    - SQLite.swift
 
 SPEC CHECKSUMS:
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   MaterialComponents: fc3dba46cf3ae8495728a875778b47d0c6ec7ed5
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
 
-PODFILE CHECKSUM: 6650d7e007a3c1da07392bbd0ea3018d27580fba
+PODFILE CHECKSUM: f25a60491432976ae4468a697a98501026152342
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

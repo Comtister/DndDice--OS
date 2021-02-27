@@ -8,5 +8,7 @@ target 'DndDice' do
   # Pods for DndDice
 
 	pod 'MaterialComponents/Tabs+TabBarView'
+	pod 'SQLite.swift', '~> 0.12.0'
+	pod 'FMDB'
 
 end

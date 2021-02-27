@@ -41,8 +41,8 @@ class ViewController: UIViewController{
     private func setTabBar(){
         
         tabBar.items = [
-        UITabBarItem(title: "Sayfa1", image: nil, tag: 0),
-        UITabBarItem(title: "Sayfa2", image: nil, tag: 1)
+        UITabBarItem(title: "Default Dices", image: nil, tag: 0),
+        UITabBarItem(title: "Custom Dices", image: nil, tag: 1)
         ]
         
         //Setup TabBar
