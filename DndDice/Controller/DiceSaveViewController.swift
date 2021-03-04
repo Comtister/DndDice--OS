@@ -60,7 +60,9 @@ class DiceSaveViewController: UIViewController{
     @IBAction func saveDice(){
        
         if titleLbl.text == ""{
-            print("HAHA")
+            let alert = UIAlertController(title: "Ops", message: "Title is missing", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             return
         }
         
@@ -99,6 +101,7 @@ extension DiceSaveViewController : DiceSaveViewDelegate{
         let diceData = chartArray.getDice(chart: sender)
         
         guard diceData.1.typeIndex != 0 else {
+           
             return
         }
         
@@ -134,6 +137,9 @@ extension DiceSaveViewController : DiceSaveViewDelegate{
         let diceData = chartArray.getDice(chart: sender)
         
         if diceData.1.count == 1{
+            let alert = UIAlertController(title: "Ops", message: "Dice count cannot be less than one", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             return
         }
         
